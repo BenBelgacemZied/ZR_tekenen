@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZR_tekenen.LessonPage"
+             BackgroundColor="#F7FBFF">
+    <Grid RowDefinitions="Auto,*,Auto" Padding="20" RowSpacing="14">
+        <Grid ColumnDefinitions="*,Auto">
+            <VerticalStackLayout>
+                <Label x:Name="TitleLabel" FontSize="28" FontAttributes="Bold" TextColor="#183153" />
+                <Label Text="Kijk, teken zelf en leer het Franse woord." FontSize="16" TextColor="#54708F" />
+            </VerticalStackLayout>
+            <Button Grid.Column="1" Text="← Terug" Clicked="OnBackClicked" BackgroundColor="#EAF4FF" TextColor="#183153" />
+        </Grid>
+
+        <Grid Grid.Row="1" ColumnDefinitions="1*,1*" ColumnSpacing="16">
+            <Border BackgroundColor="White" Stroke="#D8E9FA" Padding="14" StrokeShape="RoundRectangle 22">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="🎬 Stap-voor-stap" FontSize="21" FontAttributes="Bold" TextColor="#183153" />
+                    <Border HeightRequest="310" BackgroundColor="#EEF6FF" StrokeThickness="0" StrokeShape="RoundRectangle 18">
+                        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="10">
+                            <Label Text="✏️" FontSize="72" HorizontalTextAlignment="Center" />
+                            <Label Text="Hier komt de tekenvideo" FontSize="18" TextColor="#54708F" HorizontalTextAlignment="Center" />
+                        </VerticalStackLayout>
+                    </Border>
+                    <Button Text="▶ Start video" BackgroundColor="#2E7DF6" TextColor="White" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Grid.Column="1" BackgroundColor="White" Stroke="#D8E9FA" Padding="14" StrokeShape="RoundRectangle 22">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="✏️ Jouw tekening" FontSize="21" FontAttributes="Bold" TextColor="#183153" />
+                    <Border HeightRequest="310" BackgroundColor="White" Stroke="#BDD5EE" StrokeShape="RoundRectangle 18">
+                        <Grid>
+                            <Label Text="Teken hier met je vinger" TextColor="#9AAFC3" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Grid>
+                    </Border>
+                    <Label Text="Het echte tekenvlak wordt in de volgende stap gekoppeld." FontSize="13" TextColor="#6F849A" />
+                </VerticalStackLayout>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="2" ColumnDefinitions="*,Auto" ColumnSpacing="14">
+            <Label x:Name="CoachLabel" Text="Zayd &amp; Razan: Jij kan dit!" FontSize="17" TextColor="#183153" VerticalOptions="Center" />
+            <Button Grid.Column="1" Text="Klaar ✓" BackgroundColor="#FFD54A" TextColor="#183153" Clicked="OnDoneClicked" />
+        </Grid>
+    </Grid>
+</ContentPage>
