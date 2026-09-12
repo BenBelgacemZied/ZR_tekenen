@@ -9,8 +9,9 @@
     <Nullable>enable</Nullable>
     <ApplicationTitle>ZR Tekenen Test</ApplicationTitle>
     <ApplicationId>com.zaydrazan.zrtekenen.test</ApplicationId>
-    <ApplicationDisplayVersion>0.1</ApplicationDisplayVersion>
-    <ApplicationVersion>1</ApplicationVersion>
+    <ApplicationDisplayVersion>0.2</ApplicationDisplayVersion>
+    <ApplicationVersion>2</ApplicationVersion>
     <SupportedOSPlatformVersion>23.0</SupportedOSPlatformVersion>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
 </Project>
