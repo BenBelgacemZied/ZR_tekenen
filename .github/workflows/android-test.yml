@@ -1,0 +1,35 @@
+name: Bouw ZR Tekenen Test APK
+
+on:
+  push:
+    branches:
+      - test-app-v1
+  workflow_dispatch:
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code ophalen
+        uses: actions/checkout@v4
+
+      - name: .NET installeren
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: MAUI workload installeren
+        run: dotnet workload install maui-android
+
+      - name: Project herstellen
+        run: dotnet restore ZR_tekenen.csproj
+
+      - name: Test APK bouwen
+        run: dotnet publish ZR_tekenen.csproj -f net9.0-android -c Debug -p:AndroidPackageFormat=apk
+
+      - name: APK uploaden
+        uses: actions/upload-artifact@v4
+        with:
+          name: ZR-Tekenen-Test-APK
+          path: bin/Debug/net9.0-android/publish/*.apk
+          if-no-files-found: error
