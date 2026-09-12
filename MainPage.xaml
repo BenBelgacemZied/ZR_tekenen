@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZR_tekenen.MainPage"
+             Title="ZR Tekenen Test"
+             BackgroundColor="#EAF4FF">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+            <Grid ColumnDefinitions="*,Auto,Auto" ColumnSpacing="12">
+                <VerticalStackLayout>
+                    <Label Text="ZR Tekenen" FontSize="30" FontAttributes="Bold" TextColor="#16325C" />
+                    <Label Text="Testversie" FontSize="16" TextColor="#4F6B8A" />
+                </VerticalStackLayout>
+                <Label Grid.Column="1" Text="⭐ 12" FontSize="20" VerticalOptions="Center" />
+                <Label Grid.Column="2" Text="💎 1" FontSize="20" VerticalOptions="Center" />
+            </Grid>
+
+            <Frame CornerRadius="20" BackgroundColor="White" HasShadow="False" Padding="16">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="🎯 Opdracht van vandaag" FontAttributes="Bold" FontSize="20" />
+                    <Label Text="Teken een huis en leer het Franse woord." FontSize="16" />
+                    <ProgressBar Progress="0.5" />
+                    <Label Text="1 van 2 stappen klaar" FontSize="13" TextColor="#666666" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Label Text="Teken hier" FontAttributes="Bold" FontSize="24" TextColor="#16325C" />
+            <Label Text="Opdracht: teken een huis 🏠" FontSize="18" />
+
+            <Border Stroke="#B5CBE8" StrokeThickness="2" BackgroundColor="White" HeightRequest="360">
+                <GraphicsView x:Name="CanvasView"
+                              StartInteraction="OnStartInteraction"
+                              DragInteraction="OnDragInteraction"
+                              EndInteraction="OnEndInteraction" />
+            </Border>
+
+            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+                <Button Text="↩ Ongedaan" Clicked="OnUndoClicked" BackgroundColor="#DDEBFA" TextColor="#16325C" />
+                <Button Grid.Column="1" Text="🧽 Wissen" Clicked="OnClearClicked" BackgroundColor="#FCE8E6" TextColor="#8B1E1E" />
+                <Button Grid.Column="2" Text="✅ Klaar" Clicked="OnDoneClicked" BackgroundColor="#27AE60" TextColor="White" />
+            </Grid>
+
+            <Frame x:Name="ResultCard" IsVisible="False" CornerRadius="20" BackgroundColor="#FFF8D8" HasShadow="False" Padding="18">
+                <VerticalStackLayout Spacing="8" HorizontalOptions="Center">
+                    <Label Text="🎉 Goed gedaan!" FontSize="24" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                    <Label Text="In het Frans:" FontSize="16" HorizontalTextAlignment="Center" />
+                    <Label Text="une maison" FontSize="30" FontAttributes="Bold" TextColor="#2F80ED" HorizontalTextAlignment="Center" />
+                    <Label Text="⭐ +3 sterren" FontSize="20" HorizontalTextAlignment="Center" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <Button Text="👥 Vrienden" Clicked="OnFriendsClicked" BackgroundColor="#7D5FFF" TextColor="White" />
+                <Button Grid.Column="1" Text="📋 Opdrachten" Clicked="OnMissionsClicked" BackgroundColor="#FFB020" TextColor="#4A3200" />
+            </Grid>
+
+            <Label Text="Dit is een privé testversie. Vrienden en duels zijn nog een demo." FontSize="12" TextColor="#6B7A90" HorizontalTextAlignment="Center" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
