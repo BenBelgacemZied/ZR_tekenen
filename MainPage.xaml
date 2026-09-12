@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZR_tekenen.MainPage"
+             BackgroundColor="#F7FBFF"
+             Title="ZR Tekenen">
+
+    <Grid RowDefinitions="Auto,*" Padding="22" RowSpacing="16">
+        <Grid Grid.Row="0" ColumnDefinitions="*,Auto" ColumnSpacing="12">
+            <VerticalStackLayout>
+                <Label Text="ZR Tekenen" FontSize="30" FontAttributes="Bold" TextColor="{StaticResource TextDark}" />
+                <Label Text="Teken, leer Frans en verdien sterren!" FontSize="17" TextColor="#54708F" />
+            </VerticalStackLayout>
+            <Border Grid.Column="1" BackgroundColor="#FFF4C7" StrokeThickness="0" Padding="18,10" StrokeShape="RoundRectangle 18">
+                <Label x:Name="StarsLabel" Text="⭐ 0" FontSize="24" FontAttributes="Bold" TextColor="{StaticResource TextDark}" />
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="1" ColumnDefinitions="1.05*,1.95*" ColumnSpacing="18">
+            <VerticalStackLayout Grid.Column="0" Spacing="14">
+                <Border BackgroundColor="#FFFFFF" Stroke="#D8E9FA" Padding="18" StrokeShape="RoundRectangle 22">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="🎁 Dagelijkse beloning" FontSize="21" FontAttributes="Bold" TextColor="{StaticResource TextDark}" />
+                        <Label x:Name="DailyRewardText" Text="Kom elke dag terug voor extra sterren." FontSize="15" TextColor="#54708F" />
+                        <Button x:Name="DailyRewardButton" Text="Beloning ophalen" BackgroundColor="{StaticResource Accent}" TextColor="{StaticResource TextDark}" Clicked="OnDailyRewardClicked" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border BackgroundColor="#EAF4FF" StrokeThickness="0" Padding="18" StrokeShape="RoundRectangle 22">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="👦 Zayd &amp; 👧 Razan" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource TextDark}" />
+                        <Label Text="Begin met de makkelijkste tekening. Daarna speel je steeds nieuwe tekeningen vrij." FontSize="15" TextColor="#54708F" />
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+
+            <ScrollView Grid.Column="1">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Kies een tekening" FontSize="24" FontAttributes="Bold" TextColor="{StaticResource TextDark}" />
+
+                    <Border BackgroundColor="White" Stroke="#D8E9FA" Padding="14" StrokeShape="RoundRectangle 20">
+                        <Grid ColumnDefinitions="70,*,Auto" ColumnSpacing="12">
+                            <Label Text="🏠" FontSize="42" VerticalOptions="Center" HorizontalTextAlignment="Center" />
+                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                                <Label Text="Huis" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource TextDark}" />
+                                <Label Text="Heel makkelijk • +5 ⭐ • une maison" FontSize="14" TextColor="#54708F" />
+                            </VerticalStackLayout>
+                            <Button Grid.Column="2" Text="Start" BackgroundColor="{StaticResource Primary}" TextColor="White" Clicked="OnHouseClicked" />
+                        </Grid>
+                    </Border>
+
+                    <Border BackgroundColor="White" Stroke="#D8E9FA" Padding="14" StrokeShape="RoundRectangle 20">
+                        <Grid ColumnDefinitions="70,*,Auto" ColumnSpacing="12">
+                            <Label Text="🌳" FontSize="42" VerticalOptions="Center" HorizontalTextAlignment="Center" />
+                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                                <Label Text="Boom" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource TextDark}" />
+                                <Label Text="Makkelijk • ontgrendelt bij 5 ⭐ • un arbre" FontSize="14" TextColor="#54708F" />
+                            </VerticalStackLayout>
+                            <Button x:Name="TreeButton" Grid.Column="2" Text="5 ⭐" BackgroundColor="#D9E2EC" TextColor="#506070" Clicked="OnTreeClicked" />
+                        </Grid>
+                    </Border>
+
+                    <Border BackgroundColor="White" Stroke="#D8E9FA" Padding="14" StrokeShape="RoundRectangle 20">
+                        <Grid ColumnDefinitions="70,*,Auto" ColumnSpacing="12">
+                            <Label Text="🐱" FontSize="42" VerticalOptions="Center" HorizontalTextAlignment="Center" />
+                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                                <Label Text="Kat" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource TextDark}" />
+                                <Label Text="Ontgrendelt bij 8 ⭐ • un chat" FontSize="14" TextColor="#54708F" />
+                            </VerticalStackLayout>
+                            <Button x:Name="CatButton" Grid.Column="2" Text="8 ⭐" BackgroundColor="#D9E2EC" TextColor="#506070" Clicked="OnCatClicked" />
+                        </Grid>
+                    </Border>
+
+                    <Border BackgroundColor="White" Stroke="#D8E9FA" Padding="14" StrokeShape="RoundRectangle 20">
+                        <Grid ColumnDefinitions="70,*,Auto" ColumnSpacing="12">
+                            <Label Text="🗼" FontSize="42" VerticalOptions="Center" HorizontalTextAlignment="Center" />
+                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                                <Label Text="Eiffeltoren" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource TextDark}" />
+                                <Label Text="Frankrijk • ontgrendelt bij 15 ⭐ • la Tour Eiffel" FontSize="14" TextColor="#54708F" />
+                            </VerticalStackLayout>
+                            <Button x:Name="EiffelButton" Grid.Column="2" Text="15 ⭐" BackgroundColor="#D9E2EC" TextColor="#506070" Clicked="OnEiffelClicked" />
+                        </Grid>
+                    </Border>
+
+                    <Border BackgroundColor="White" Stroke="#D8E9FA" Padding="14" StrokeShape="RoundRectangle 20">
+                        <Grid ColumnDefinitions="70,*,Auto" ColumnSpacing="12">
+                            <Label Text="⚛️" FontSize="42" VerticalOptions="Center" HorizontalTextAlignment="Center" />
+                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                                <Label Text="Atomium" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource TextDark}" />
+                                <Label Text="Brussel • ontgrendelt bij 25 ⭐ • l’Atomium" FontSize="14" TextColor="#54708F" />
+                            </VerticalStackLayout>
+                            <Button x:Name="AtomiumButton" Grid.Column="2" Text="25 ⭐" BackgroundColor="#D9E2EC" TextColor="#506070" Clicked="OnAtomiumClicked" />
+                        </Grid>
+                    </Border>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Grid>
+    </Grid>
+</ContentPage>
