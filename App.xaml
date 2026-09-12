@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZR_tekenen.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#2E7DF6</Color>
+            <Color x:Key="Accent">#FFD54A</Color>
+            <Color x:Key="SoftBlue">#EAF4FF</Color>
+            <Color x:Key="TextDark">#183153</Color>
+            <Style TargetType="Button">
+                <Setter Property="CornerRadius" Value="18" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="MinimumHeightRequest" Value="52" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
