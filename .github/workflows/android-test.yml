@@ -6,6 +6,9 @@ on:
       - test-app-v1
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build-android:
     runs-on: ubuntu-latest
@@ -27,9 +30,33 @@ jobs:
       - name: Test APK bouwen
         run: dotnet publish ZR_tekenen.csproj -f net9.0-android -c Debug -p:AndroidPackageFormat=apk
 
-      - name: APK uploaden
+      - name: APK uploaden als artifact
         uses: actions/upload-artifact@v4
         with:
           name: ZR-Tekenen-Test-APK
           path: bin/Debug/net9.0-android/publish/*.apk
           if-no-files-found: error
+
+      - name: APK klaarzetten voor download
+        shell: bash
+        run: |
+          APK=$(find bin/Debug/net9.0-android/publish -type f -name '*-Signed.apk' | head -n 1)
+          if [ -z "$APK" ]; then
+            APK=$(find bin/Debug/net9.0-android/publish -type f -name '*.apk' | head -n 1)
+          fi
+          test -n "$APK"
+          cp "$APK" ZR-Tekenen-v0.2.apk
+
+      - name: GitHub Release maken
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view v0.2 >/dev/null 2>&1; then
+            gh release upload v0.2 ZR-Tekenen-v0.2.apk --clobber
+          else
+            gh release create v0.2 ZR-Tekenen-v0.2.apk \
+              --target "$GITHUB_SHA" \
+              --title "ZR Tekenen v0.2" \
+              --notes "Nieuwe testversie van ZR Tekenen voor Android. Download ZR-Tekenen-v0.2.apk en installeer deze op je Android-toestel."
+          fi
